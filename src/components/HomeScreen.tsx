@@ -64,14 +64,15 @@ export default function HomeScreen() {
         </div>
       </header>
 
-      {/* Search Section */}
-      <div className="p-4 sticky top-0 z-20 bg-slate-50/80 backdrop-blur-sm">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+      {/* Search Section with Glassmorphism */}
+      <div className="p-4 sticky top-0 z-20">
+        <div className="relative backdrop-blur-[12px] bg-white/10 rounded-2xl p-3 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)]" style={{ WebkitBackdropFilter: 'blur(12px)' }}>
+          <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-600" />
           <input
             type="text"
             placeholder="Search matches, series, code..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-black"
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/40 backdrop-blur-sm border border-white/30 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-gray-800 placeholder:text-gray-500 font-medium"
+            style={{ WebkitBackdropFilter: 'blur(8px)' }}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -79,10 +80,10 @@ export default function HomeScreen() {
       </div>
 
       <div className="px-4 space-y-6">
-        {/* Live Matches */}
-        <section>
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-secondary flex items-center gap-2">
+        {/* Live Matches with Glassmorphism Container */}
+        <section className="backdrop-blur-[10px] bg-white/10 rounded-2xl p-4 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.12)]" style={{ WebkitBackdropFilter: 'blur(10px)' }}>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
               Live Matches
             </h2>
@@ -90,7 +91,7 @@ export default function HomeScreen() {
           
           <div className="space-y-3">
             {filteredLive.length === 0 ? (
-              <p className="text-gray-800 text-sm text-center py-4 italic font-medium">No live matches currently.</p>
+              <p className="text-gray-700 text-sm text-center py-4 italic font-medium">No live matches currently.</p>
             ) : (
                 filteredLive.map(match => (
                     <MatchCard key={match.id} match={match} />
@@ -99,12 +100,12 @@ export default function HomeScreen() {
           </div>
         </section>
 
-        {/* Completed Matches */}
-        <section>
-          <h2 className="text-lg font-bold text-secondary mb-3">Completed Matches</h2>
+        {/* Completed Matches with Glassmorphism Container */}
+        <section className="backdrop-blur-[10px] bg-white/10 rounded-2xl p-4 border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.12)]" style={{ WebkitBackdropFilter: 'blur(10px)' }}>
+          <h2 className="text-lg font-bold text-gray-800 mb-4">Completed Matches</h2>
           <div className="space-y-3">
              {filteredCompleted.length === 0 ? (
-              <p className="text-gray-800 text-sm text-center py-4 italic font-medium">No completed matches found.</p>
+              <p className="text-gray-700 text-sm text-center py-4 italic font-medium">No completed matches found.</p>
             ) : (
                 filteredCompleted.map(match => (
                     <MatchCard key={match.id} match={match} />
@@ -256,17 +257,17 @@ function MatchCard({ match }: { match: Match }) {
 
     return (
         <Link href={`/match/${match.id}`}>
-            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col gap-2 hover:shadow-md transition-shadow cursor-pointer">
-                <div className="flex justify-between items-center text-xs text-gray-500 uppercase tracking-wider">
+            <div className="backdrop-blur-[12px] bg-white/15 p-4 rounded-xl border border-white/25 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] flex flex-col gap-2 hover:bg-white/25 hover:shadow-[0_12px_40px_0_rgba(0,0,0,0.15)] hover:scale-[1.02] transition-all duration-300 cursor-pointer" style={{ WebkitBackdropFilter: 'blur(12px)' }}>
+                <div className="flex justify-between items-center text-xs text-gray-600 uppercase tracking-wider font-semibold">
                     <span>{match.type}</span>
                     <span>#{match.code}</span>
                 </div>
                 <div className="flex justify-between items-center font-semibold text-secondary">
-                    <span className="truncate max-w-[40%] text-black font-bold">{match.team1.name}</span>
-                    <span className="text-sm font-bold text-gray-400">VS</span>
-                    <span className="truncate max-w-[40%] text-black font-bold">{match.team2.name}</span>
+                    <span className="truncate max-w-[40%] text-gray-800 font-bold">{match.team1.name}</span>
+                    <span className="text-sm font-bold text-gray-500">VS</span>
+                    <span className="truncate max-w-[40%] text-gray-800 font-bold">{match.team2.name}</span>
                 </div>
-                <div className={`text-sm text-center font-medium mt-1 bg-gray-50 py-1 rounded-lg ${statusColor}`}>
+                <div className={`text-sm text-center font-medium mt-1 bg-white/30 backdrop-blur-sm py-1.5 rounded-lg ${statusColor} border border-white/20`} style={{ WebkitBackdropFilter: 'blur(6px)' }}>
                     {statusText}
                 </div>
             </div>
