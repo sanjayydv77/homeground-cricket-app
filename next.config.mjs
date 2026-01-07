@@ -2,9 +2,11 @@ import withPWAInit from "next-pwa";
 
 const withPWA = withPWAInit({
   dest: "public",
-  disable: false, // Enable PWA in development for testing
+  disable: process.env.NODE_ENV === "development",
   register: true,
   skipWaiting: true,
+  sw: "sw.js",
+  buildExcludes: [/middleware-manifest\.json$/, /middleware-runtime\.js$/],
 });
 
 /** @type {import('next').NextConfig} */
