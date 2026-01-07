@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Offline | HomeGround</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0fdf4;
+            color: #166534;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #15803d;
+        }
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: #166534;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            color: #15803d;
+        }
+        button {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.74 5.25A11.026 11.026 0 0 1 12 5.23c6.075 0 11 4.925 11 11 0 1.25-.23 2.45-.65 3.57"></path>
+            <path d="M2.54 8.68a11.02 11.02 0 0 0-1.29 4.54C1.25 19.3 6.175 24.225 12.25 24.23c1.78 0 3.47-.43 5-1.19"></path>
+            <line x1="2" y1="2" x2="22" y2="22"></line>
+        </svg>
+        <h1>You're Offline</h1>
+        <p>Please check your internet connection to continue scoring.</p>
+        <button onclick="window.location.reload()">Try Again</button>
+    </div>
+</body>
+</html>
