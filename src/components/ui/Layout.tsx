@@ -8,15 +8,20 @@ interface LayoutProps {
 
 export function Layout({ children, className }: LayoutProps) {
   return (
-    <div className="min-h-screen w-full bg-slate-50 relative overflow-x-hidden">
-      {/* Background Image Layer with Glassy Effect */}
+    <div className="min-h-screen w-full bg-slate-900 relative overflow-x-hidden">
+      {/* Background Image Layer - Clear and Visible */}
       <div 
-        className="absolute inset-0 z-0 bg-cricket-pattern bg-cover bg-center opacity-[0.35]"
+        className="fixed inset-0 z-0 bg-cricket-pattern bg-cover bg-center bg-no-repeat"
         aria-hidden="true"
       />
-      {/* Frosted Glass Overlay */}
+      {/* Dark Overlay for Better Text Contrast */}
       <div 
-        className="absolute inset-0 z-[1] backdrop-blur-[8px] bg-white/40"
+        className="fixed inset-0 z-[1] bg-black/20"
+        aria-hidden="true"
+      />
+      {/* Light Frosted Overlay - Minimal to Keep Background Visible */}
+      <div 
+        className="fixed inset-0 z-[2] bg-white/5"
         aria-hidden="true"
       />
       
