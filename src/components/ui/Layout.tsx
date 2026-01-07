@@ -9,9 +9,14 @@ interface LayoutProps {
 export function Layout({ children, className }: LayoutProps) {
   return (
     <div className="min-h-screen w-full bg-slate-50 relative overflow-x-hidden">
-      {/* Background Image Layer */}
+      {/* Background Image Layer with Glassy Effect */}
       <div 
-        className="absolute inset-0 z-0 bg-cricket-pattern bg-cover bg-center opacity-10 blur-[2px]"
+        className="absolute inset-0 z-0 bg-cricket-pattern bg-cover bg-center opacity-[0.35]"
+        aria-hidden="true"
+      />
+      {/* Frosted Glass Overlay */}
+      <div 
+        className="absolute inset-0 z-[1] backdrop-blur-[8px] bg-white/40"
         aria-hidden="true"
       />
       
