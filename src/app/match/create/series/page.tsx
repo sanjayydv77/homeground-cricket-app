@@ -145,6 +145,7 @@ export default function CreateSeries() {
                                     value={numMatches} 
                                     onChange={e => setNumMatches(e.target.value === "" ? "" : parseInt(e.target.value))} 
                                     className="w-full p-3 border rounded-xl text-black" 
+                                    placeholder="e.g. 5"
                                 />
                                 <p className="text-xs text-gray-500 mt-1">Min 2, Max 10</p>
                             </div>
@@ -155,6 +156,7 @@ export default function CreateSeries() {
                                     value={overs} 
                                     onChange={e => setOvers(e.target.value === "" ? "" : parseInt(e.target.value))} 
                                     className="w-full p-3 border rounded-xl text-black" 
+                                    placeholder="e.g. 20"
                                 />
                             </div>
                         </div>
@@ -166,6 +168,7 @@ export default function CreateSeries() {
                                 value={teamSize} 
                                 onChange={e => setTeamSize(e.target.value === "" ? "" : parseInt(e.target.value))} 
                                 className="w-full p-3 border rounded-xl text-black" 
+                                placeholder="e.g. 11"
                             />
                              <p className="text-xs text-gray-500 mt-1">Min 7, Max 15</p>
                         </div>
@@ -182,6 +185,7 @@ export default function CreateSeries() {
                                         value={team1Name} 
                                         onChange={e => setTeam1Name(e.target.value)} 
                                         className="w-full p-2 border rounded-lg text-black" 
+                                        placeholder="e.g. England"
                                     />
                                 </div>
                                 <div>
@@ -191,6 +195,7 @@ export default function CreateSeries() {
                                         value={team2Name} 
                                         onChange={e => setTeam2Name(e.target.value)} 
                                         className="w-full p-2 border rounded-lg text-black" 
+                                        placeholder="e.g. Australia"
                                     />
                                 </div>
                             </div>

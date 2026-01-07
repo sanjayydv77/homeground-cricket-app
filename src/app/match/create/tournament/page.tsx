@@ -162,6 +162,7 @@ export default function CreateTournament() {
                                 value={numTeams} 
                                 onChange={e => setNumTeams(e.target.value === "" ? "" : parseInt(e.target.value))} 
                                 className="w-full p-3 border rounded-xl text-black"
+                                placeholder="e.g. 8"
                             />
                             <p className="text-xs text-gray-500 mt-1">Min 4, Max 16</p>
                         </div>
@@ -172,6 +173,7 @@ export default function CreateTournament() {
                                 value={teamSize} 
                                 onChange={e => setTeamSize(e.target.value === "" ? "" : parseInt(e.target.value))} 
                                 className="w-full p-3 border rounded-xl text-black"
+                                placeholder="e.g. 11"
                             />
                         </div>
                     </div>
@@ -182,6 +184,7 @@ export default function CreateTournament() {
                             value={overs} 
                             onChange={e => setOvers(e.target.value === "" ? "" : parseInt(e.target.value))} 
                             className="w-full p-3 border rounded-xl text-black"
+                            placeholder="e.g. 20"
                         />
                     </div>
                     
@@ -200,6 +203,7 @@ export default function CreateTournament() {
                             value={teams[currentTeamIndex].name} 
                             onChange={e => updateCurrentTeamName(e.target.value)} 
                             className="w-full p-3 border rounded-xl text-black font-bold text-lg" 
+                            placeholder="e.g. Mumbai Indians"
                         />
                     </div>
 

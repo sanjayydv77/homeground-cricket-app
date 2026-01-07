@@ -120,19 +120,19 @@ export default function CreateSingleMatch() {
             <div className="space-y-6 max-w-lg mx-auto bg-white p-6 rounded-xl shadow-sm">
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Overs per Innings</label>
-                    <input type="number" min="1" value={overs} onChange={e => setOvers(e.target.value === "" ? "" : parseInt(e.target.value))} className="w-full p-2 border rounded-lg text-black" />
+                    <input type="number" min="1" value={overs} onChange={e => setOvers(e.target.value === "" ? "" : parseInt(e.target.value))} className="w-full p-2 border rounded-lg text-black" placeholder="e.g. 20" />
                 </div>
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Players per Team</label>
-                    <input type="number" min="2" value={teamSize} onChange={e => setTeamSize(e.target.value === "" ? "" : parseInt(e.target.value))} className="w-full p-2 border rounded-lg text-black" />
+                    <input type="number" min="2" value={teamSize} onChange={e => setTeamSize(e.target.value === "" ? "" : parseInt(e.target.value))} className="w-full p-2 border rounded-lg text-black" placeholder="e.g. 11" />
                 </div>
                  <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Team 1 Name</label>
-                    <input type="text" value={team1Name} onChange={e => setTeam1Name(e.target.value)} className="w-full p-2 border rounded-lg text-black" />
+                    <input type="text" value={team1Name} onChange={e => setTeam1Name(e.target.value)} className="w-full p-2 border rounded-lg text-black" placeholder="e.g. Chennai Super Kings" />
                 </div>
                  <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Team 2 Name</label>
-                    <input type="text" value={team2Name} onChange={e => setTeam2Name(e.target.value)} className="w-full p-2 border rounded-lg text-black" />
+                    <input type="text" value={team2Name} onChange={e => setTeam2Name(e.target.value)} className="w-full p-2 border rounded-lg text-black" placeholder="e.g. Mumbai Indians" />
                 </div>
                 
                 <button onClick={handleNextStep1} className="w-full bg-primary text-white py-3 rounded-xl font-bold mt-4">
