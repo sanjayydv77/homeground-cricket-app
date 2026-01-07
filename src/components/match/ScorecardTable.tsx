@@ -46,82 +46,81 @@ export default function ScorecardTable({ battingStats, bowlingStats, teamName, s
 
       {isOpen && (
         <div className="animate-in slide-in-from-top-2 duration-300">
-           {/* Batting Table */}
+           {/* Batting Table - Compact Mobile Layout */}
            <div className="overflow-x-auto">
-             <table className="w-full text-sm text-left">
-               <thead className="bg-gray-50 text-gray-500 font-medium text-xs uppercase tracking-wider">
+             <table className="w-full text-left">
+               <thead className="bg-gray-50 text-gray-500 font-medium uppercase tracking-wider">
                  <tr>
-                    <th className="p-3">Batsman</th>
-                    <th className="p-3 text-right">R</th>
-                    <th className="p-3 text-right">B</th>
-                    <th className="p-3 text-right hidden sm:table-cell">4s</th>
-                    <th className="p-3 text-right hidden sm:table-cell">6s</th>
-                    <th className="p-3 text-right">SR</th>
+                    <th className="py-2 px-2 text-[11px] sm:text-xs sm:px-3">Batsman</th>
+                    <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">R</th>
+                    <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">B</th>
+                    <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">4s</th>
+                    <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">6s</th>
+                    <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">SR</th>
                  </tr>
                </thead>
                <tbody className="divide-y divide-gray-100">
                  {batters.map(player => (
                     <tr key={player.id} className="hover:bg-gray-50/50">
-                        <td className="p-3">
-                            <div className="font-semibold text-gray-800 flex items-center gap-2">
+                        <td className="py-2 px-2 sm:px-3">
+                            <div className="font-semibold text-gray-800 text-xs sm:text-sm leading-tight">
                                 {player.name}
-                                {!player.out && <span className="text-green-600 text-[10px] font-bold px-1.5 py-0.5 bg-green-50 rounded-full">NOT OUT</span>}
                             </div>
-                            <div className="text-xs text-gray-400 font-medium truncate max-w-[150px]">
+                            <div className="text-[10px] sm:text-xs text-gray-400 font-medium truncate max-w-[100px] sm:max-w-[150px] leading-tight mt-0.5">
                                 {player.out ? player.dismissal : "not out*"}
                             </div>
                         </td>
-                        <td className="p-3 text-right font-bold text-gray-900">{player.runs}</td>
-                        <td className="p-3 text-right text-gray-600">{player.balls}</td>
-                        <td className="p-3 text-right text-gray-600 hidden sm:table-cell">{player.fours}</td>
-                        <td className="p-3 text-right text-gray-600 hidden sm:table-cell">{player.sixes}</td>
-                        <td className="p-3 text-right text-gray-500 font-mono text-xs">{player.strikeRate.toFixed(1)}</td>
+                        <td className="py-2 px-1.5 sm:px-2 text-right font-bold text-gray-900 text-xs sm:text-sm">{player.runs}</td>
+                        <td className="py-2 px-1.5 sm:px-2 text-right text-gray-600 text-xs sm:text-sm">{player.balls}</td>
+                        <td className="py-2 px-1.5 sm:px-2 text-right text-gray-600 text-xs sm:text-sm">{player.fours}</td>
+                        <td className="py-2 px-1.5 sm:px-2 text-right text-gray-600 text-xs sm:text-sm">{player.sixes}</td>
+                        <td className="py-2 px-1.5 sm:px-2 text-right text-gray-500 font-mono text-[11px] sm:text-xs">{player.strikeRate.toFixed(1)}</td>
                     </tr>
                  ))}
                  {batters.length === 0 && (
-                     <tr><td colSpan={6} className="p-4 text-center text-gray-400 italic">No batting data yet</td></tr>
+                     <tr><td colSpan={6} className="p-4 text-center text-gray-400 italic text-xs sm:text-sm">No batting data yet</td></tr>
                  )}
                </tbody>
              </table>
            </div>
            
            {/* Extras Row */}
-           <div className="p-3 border-t border-gray-100 flex justify-between items-center text-sm bg-gray-50">
-               <span className="font-semibold text-gray-600">Extras</span>
-               <span className="font-mono font-bold text-gray-800">{extras.total}</span>
+           <div className="py-2 px-2 sm:px-3 border-t border-gray-100 flex justify-between items-center bg-gray-50">
+               <span className="font-semibold text-gray-600 text-xs sm:text-sm">Extras</span>
+               <span className="font-mono font-bold text-gray-800 text-xs sm:text-sm">{extras.total}</span>
            </div>
 
             {/* Bowling Header */}
-           <div className="bg-gray-100/50 p-2 px-3 text-xs font-bold text-gray-500 uppercase tracking-wider mt-1 border-y border-gray-100">
+           <div className="bg-gray-100/50 py-1.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mt-1 border-y border-gray-100">
                Bowling
            </div>
 
-           {/* Bowling Table */}
+           {/* Bowling Table - Compact Mobile Layout */}
            <div className="overflow-x-auto">
-             <table className="w-full text-sm text-left">
-                <thead className="text-gray-500 font-medium text-xs uppercase tracking-wider">
+             <table className="w-full text-left">
+                <thead className="text-gray-500 font-medium uppercase tracking-wider">
                     <tr>
-                        <th className="p-3 w-1/3">Bowler</th>
-                        <th className="p-3 text-right">O</th>
-                        <th className="p-3 text-right">M</th>
-                        <th className="p-3 text-right">R</th>
-                        <th className="p-3 text-right">W</th>
-                        <th className="p-3 text-right">Econ</th>
+                        <th className="py-2 px-2 text-[11px] sm:text-xs sm:px-3">Bowler</th>
+                        <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">O</th>
+                        <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">M</th>
+                        <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">R</th>
+                        <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">W</th>
+                        <th className="py-2 px-1.5 text-right text-[11px] sm:text-xs sm:px-2">ER</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                     {bowlingStats.map(bowler => (
                         <tr key={bowler.id} className="hover:bg-gray-50/50">
-                            <td className="p-3 font-semibold text-gray-800 truncate max-w-[120px]">{bowler.name}</td>
-                            <td className="p-3 text-right text-gray-800">{bowler.overs}</td>
-                            <td className="p-3 text-right text-gray-500">{bowler.maidens}</td>
-                            <td className="p-3 text-right text-gray-600">{bowler.runs}</td>
-                            <td className="p-3 text-right font-bold text-primary">{bowler.wickets}</td>
-                            <td className="p-3 text-right text-gray-500 font-mono text-xs">{bowler.economy.toFixed(1)}</td>
+                            <td className="py-2 px-2 sm:px-3 font-semibold text-gray-800 text-xs sm:text-sm truncate max-w-[100px] sm:max-w-[120px]">{bowler.name}</td>
+                            <td className="py-2 px-1.5 sm:px-2 text-right text-gray-800 text-xs sm:text-sm">{bowler.overs}</td>
+                            <td className="py-2 px-1.5 sm:px-2 text-right text-gray-500 text-xs sm:text-sm">{bowler.maidens}</td>
+                            <td className="py-2 px-1.5 sm:px-2 text-right text-gray-600 text-xs sm:text-sm">{bowler.runs}</td>
+                            <td className="py-2 px-1.5 sm:px-2 text-right font-bold text-primary text-xs sm:text-sm">{bowler.wickets}</td>
+                            <td className="py-2 px-1.5 sm:px-2 text-right text-gray-500 font-mono text-[11px] sm:text-xs">{bowler.economy.toFixed(1)}</td>
                         </tr>
                     ))}
                     {bowlingStats.length === 0 && (
-                        <tr><td colSpan={6} className="p-4 text-center text-gray-400 italic">No bowling data yet</td></tr>
+                        <tr><td colSpan={6} className="p-4 text-center text-gray-400 italic text-xs sm:text-sm">No bowling data yet</td></tr>
                     )}
                 </tbody>
              </table>
@@ -129,7 +128,7 @@ export default function ScorecardTable({ battingStats, bowlingStats, teamName, s
 
            {/* Did Not Bat */}
            {didNotBat && (
-               <div className="p-3 text-xs text-gray-500 border-t border-gray-100 bg-gray-50/30">
+               <div className="py-2 px-2 sm:px-3 text-[11px] sm:text-xs text-gray-500 border-t border-gray-100 bg-gray-50/30">
                    <strong className="text-gray-700">Did not bat:</strong> {didNotBat}
                </div>
            )}
