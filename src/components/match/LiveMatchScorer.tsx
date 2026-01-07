@@ -309,10 +309,21 @@ function ScoringBoard({ match }: { match: Match }) {
         const batSecondTeam = match.batFirstId === match.team1.id ? match.team2 : match.team1;
         
         let winnerId: string | undefined = undefined;
-        if (score1 > score2) winnerId = batFirstTeam.id;
-        else if (score2 > score1) winnerId = batSecondTeam.id;
+        let resultText = "Match Drawn";
         
-        updateMatch(match.id, { status: "Completed" });
+        if (score1 > score2) {
+            winnerId = batFirstTeam.id;
+            const runsDiff = score1 - score2;
+            resultText = `${batFirstTeam.name} Won by ${runsDiff} ${runsDiff === 1 ? 'run' : 'runs'}`;
+        } else if (score2 > score1) {
+            winnerId = batSecondTeam.id;
+            const effectiveTeamSize = match.teamSize || batSecondTeam.players.length || 11;
+            const maxWickets = effectiveTeamSize - 1;
+            const wicketsRemaining = Math.max(0, maxWickets - currentWickets);
+            resultText = `${batSecondTeam.name} Won by ${wicketsRemaining} ${wicketsRemaining === 1 ? 'wicket' : 'wickets'}`;
+        }
+        
+        updateMatch(match.id, { status: "Completed", winner: winnerId, result: resultText });
 
         // Series Update Logic
         if (match.seriesId && match.type === "Series") {
